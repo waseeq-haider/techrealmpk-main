@@ -1,1275 +1,1292 @@
-<!DOCTYPE html><html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- Page Title -->
-    <title>Bringer | Digital Agency</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
-    <!-- Config -->
-    <link type="text/css" rel="stylesheet" href="css/config.css">
-    <!-- Libraries -->
-    <link type="text/css" rel="stylesheet" href="css/libs.css">
-    <!-- Template Styles -->
-    <link type="text/css" rel="stylesheet" href="css/style.css">
-    <!-- Responsive -->
-    <link type="text/css" rel="stylesheet" href="css/responsive.css">
+  <!-- Page Title -->
+  <title>TechRealm | Digital Agency</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png" sizes="32x32">
-    <style>
-        
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+  <!-- Config -->
+  <link type="text/css" rel="stylesheet" href="css/config.css">
+  <!-- Libraries -->
+  <link type="text/css" rel="stylesheet" href="css/libs.css">
+  <!-- Template Styles -->
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <!-- Responsive -->
+  <link type="text/css" rel="stylesheet" href="css/responsive.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.png" sizes="32x32">
+  <style>
+    html,
+    body {
+      margin: 0;
+      font-family: Helvetica;
+    }
+
+    .hero {
+      position: relative;
+    }
+
+    .video {
+      display: block;
+      width: 100%;
+      /* Adjust if needed */
+      height: auto;
+      /* Adjust if needed */
+    }
+
+    .hero-content {
+      position: relative;
+      /* Ensure hero-content is positioned relative for further positioning of elements inside it */
+    }
+
+    .video-trigger {
+      width: 30px;
+      height: 25px;
+      display: block;
+      position: absolute;
+      bottom: 150px;
+      /* Adjust this value as needed */
+      left: 50%;
+      transform: translateX(-50%);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      padding-top: 5px;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Optional: for better visibility */
+
+      &:before,
+      &.mute:before {
+        color: #fff;
+        font-family: Arial, sans-serif;
+        /* Adjust font-family if necessary */
+      }
+
+      &:before {
+        content: '🔇';
+        /* Unicode for the speaker emoji */
+        margin-left: 3px;
+      }
+
+      &.mute:before {
+        content: '🔊';
+        /* Unicode for the muted speaker emoji */
+        margin-left: -3px;
+      }
+
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
 
 
-        html, body
-        {
-          margin: 0;
-          font-family: Helvetica;
-        }
-        
-        .hero {
-  position: relative;
-}
 
-.video {
-  display: block;
-  width: 100%; /* Adjust if needed */
-  height: auto; /* Adjust if needed */
-}
+    .sticky-video {
+      width: 300px;
+      max-width: 40%;
+      position: fixed;
+      bottom: 100px;
+      right: -300px;
+      z-index: 10;
+      transition: all 0.5s;
+    }
 
-.hero-content {
-  position: relative; /* Ensure hero-content is positioned relative for further positioning of elements inside it */
-}
-
-.video-trigger {
-  width: 30px;
-  height: 25px;
-  display: block;
-  position: absolute;
-  bottom: 150px; /* Adjust this value as needed */
-  left: 50%;
-  transform: translateX(-50%);
-  border: 2px solid #fff;
-  border-radius: 50%;
-  padding-top: 5px;
-  background-color: rgba(0, 0, 0, 0.5); /* Optional: for better visibility */
-
-  &:before,
-  &.mute:before {
-    color: #fff;
-    font-family: Arial, sans-serif; /* Adjust font-family if necessary */
-  }
-
-  &:before {
-    content: '🔇'; /* Unicode for the speaker emoji */
-    margin-left: 3px;
-  }
-
-  &.mute:before {
-    content: '🔊'; /* Unicode for the muted speaker emoji */
-    margin-left: -3px;
-  }
-
-  &:hover {
-    text-decoration: none;
-    cursor: pointer;
-  }
-}
+    .hero__tagline {
+      font-size: 20px;
+      line-height: 0.95em;
+      letter-spacing: 0.01em;
+      padding: 1.5em 0;
+      color: #fff;
+      margin-top: 100px;
+    }
 
 
-        
-        .sticky-video
-        {
-          width: 300px;
-          max-width: 40%;
-          position: fixed;
-          bottom: 100px;
-          right: -300px;
-          z-index: 10;
-          transition: all 0.5s;
-        }
-        
-        .hero__tagline {
-          font-size: 20px;
-          line-height: 0.95em;
-          letter-spacing: 0.01em;
-          padding: 1.5em 0;
-          color: #fff;
-          margin-top: 100px;
-        }
-        
-        
-        .filler
-        {
-          height: 300vh;
-          padding: 100px 2em;
-          text-align: center;
-          background-color: #281863;
-          color: white;
-        }
-                </style>
+    .filler {
+      height: 300vh;
+      padding: 100px 2em;
+      text-align: center;
+      background-color: #281863;
+      color: white;
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header id="bringer-header" class="is-frosted is-sticky" data-appear="fade-down" data-unload="fade-up">
-        <!-- Desktop Header -->
-        <div class="bringer-header-inner">
-            <!-- Header Logo -->
-            <div class="bringer-header-lp">
-                <a href="./" class="bringer-logo">
-                    <img src="images/logo.png" alt="bringer." width="158" height="124">
-                </a>
-            </div>
-             <!-- Main Menu -->
-             <div class="bringer-header-mp">
-                <nav class="bringer-nav">
-                    <ul class="main-menu" data-stagger-appear="fade-down" data-stagger-delay="75">
-                        <li class="current-menu-parent">
-                            <a href="#">Home</a>
-                            <ul class="sub-menu">
-                                <li class="current-menu-item">
-                                    <a href="index.html">Home 01</a>
-                                </li>
-                                <li>
-                                    <a href="home02.html">Home 02</a>
-                                </li>
-                                <li>
-                                    <a href="home03.html">Home 03</a>
-                                </li>
-                                <li>
-                                    <a href="home04.html">Home 04</a>
-                                </li>
-                                <li>
-                                    <a href="home05.html">Home 05</a>
-                                </li>
-                                <li>
-                                    <a href="home06.html">Home 06</a>
-                                </li>
-                                <li>
-                                    <a href="home07.html">Home 07</a>
-                                </li>
-                                <li>
-                                    <a href="home08.html">Home 08</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Buy Now</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="about-us.html">Software Development</a>
-                                </li>
-                                <li>
-                                    <a href="https://pay.ziina.com/DGTrading/NFZOjJ2Ks">AI Development</a>
-                                </li>
-                                <li>
-                                    <a href="about-me.html">Digital Marketing</a>
-                                </li>
-                                <li>
-                                    <a href="about-me.html">Ecommerce integration</a>
-                                </li>
-                                <li>
-                                    <a href="about-me.html">Products</a>
-                                </li>
-                                <li>
-                                    <a href="team-member.html">Quick Consultation</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="./../serviceslist/index.html">Services</a>                            
-                        </li>
-                        <li>
-                            <a href="#portfolio">Portfolio</a>                            
-                        </li>
-                        <li>
-                            <a href="#contact-us">Contact us</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <!-- Header Button -->
-            <div class="btn-area d-flex justify-content-center mt-5 mt-sm-0">
-                <a href="#!" class="see-all-btn">
-                  Get a Free Quote
-                </a>
-              </div>
-        </div>
-        <!-- Mobile Header -->
-        <div class="bringer-mobile-header-inner">
-            <a href="./" class="bringer-logo">
-                <img src="images/logo.png" alt="bringer." width="88" height="24">
-            </a>
-            <a href="#" class="bringer-mobile-menu-toggler">
-                <i class="bringer-menu-toggler-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </i>
-            </a>
-        </div>
-    </header>
-
-    <!-- Page Main -->
-    <main id="bringer-main">
-        <div class="stg-container">
-            <!-- Hero Section -->
-            <section>
-                <div class="bringer-hero-block bringer-hero-type01">
-                    <!-- Main Line -->
-                    <div class="stg-row stg-bottom-gap-l stg-m-bottom-gap-l">
-                        <div class="stg-col-9 stg-tp-col-8 stg-m-col-12">
-                            <!-- Title -->
-                            <h1 class="bringer-page-title" data-split-appear="fade-up" data-split-unload="fade-up">Imagine the Possibilities, Bring Visions to Reality.</h1>
-                        </div>
-                        <div class="stg-col-3 stg-tp-col-4 stg-m-col-12">
-                            <!-- Social Proof -->
-                            <div class="bringer-hero-social-proof">
-                                <div data-stagger-appear="fade-up" data-stagger-delay="100" data-stagger-unload="fade-up">
-                                    <img src="images/social-proof01.jpg" alt="Client 01">
-                                    <img src="images/social-proof02.jpg" alt="Client 02">
-                                    <img src="images/social-proof03.jpg" alt="Client 03">
-                                    <a href="testimonials.html">24K+</a>
-                                </div>
-                                <p data-appear="fade-up" data-unload="fade-up" data-delay="200">Trusted by 24K+ clients</p>
-                            </div>
-                        </div>
-                    </div><!-- .stg-row -->
-
-                    <!-- Masked Media Container -->
-                    <div class="bringer-hero-media-wrap bringer-masked-bottom-right bringer-masked-block stg-bottom-gap-l" data-appear="zoom-out" data-unload="zoom-out">
-                        <!-- Masked Media -->
-                        <div class="bringer-masked-media bringer-masked-media bringer-parallax-media">
-                            <img src="images/home01-hero.jpg" alt="Unleash Your Creativity">
-                        </div>
-                        <!-- Content -->
-                        <div class="bringer-masked-content at-bottom-right">
-                            <a href="#page01" class="bringer-square-button" data-appear="fade-left">
-                               
-                                <span class="bringer-icon bringer-icon-arrow-down"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Additional Information Line -->
-                    <div class="stg-row stg-valign-bottom">
-                        <div class="stg-col-3 stg-tp-col-3 stg-m-col-6" data-appear="fade-up" data-delay="200" data-unload="fade-up">
-                            <div class="bringer-counter bringer-small-counter" data-delay="3000">
-                                <div class="bringer-counter-number">420</div>
-                                <div class="bringer-counter-label">Complated Projects</div>
-                            </div><!-- .bringer-counter -->
-                        </div>
-                        <div class="stg-col-3 stg-tp-col-3 stg-m-col-6" data-appear="fade-up" data-delay="300" data-unload="fade-up">
-                            <div class="bringer-counter bringer-small-counter" data-delay="3000">
-                                <div class="bringer-counter-number" data-suffix="+">12</div>
-                                <div class="bringer-counter-label">Years of Experience</div>
-                            </div><!-- .bringer-counter -->
-                        </div>
-                        <div class="stg-col-6 stg-tp-col-6 stg-m-col-12 stg-m-top-gap" data-appear="fade-up" data-delay="400" data-unload="fade-up">
-                            <p class="bringer-large-text">We help agencies, Innovators, and other Tech Dreamers To Transform their concept into a tangible reality.</p>
-                        </div>
-                    </div><!-- .stg-row -->
-                </div><!-- .bringer-hero-block -->
-            </section>
-<!-- Homepage Video -->
-<section class="hero">
-    <video id="video" class="video" preload="auto" poster="" autoplay loop muted>
-      <source src="https://penimages.techrealm.pk/share/techrealm.MP4">
-    </video>
-  
-    <div class="container hero-content">
-      <h2 class="hero__tagline"></h2>
-      <a id="js-video-trigger" class="video-trigger"></a>
+  <!-- Header -->
+  <header id="bringer-header" class="is-frosted is-sticky" data-appear="fade-down" data-unload="fade-up">
+    <!-- Desktop Header -->
+    <div class="bringer-header-inner">
+      <!-- Header Logo -->
+      <div class="bringer-header-lp">
+        <a href="./" class="bringer-logo">
+          <img src="images/logo.png" alt="bringer." width="158" height="124">
+        </a>
+      </div>
+      <!-- Main Menu -->
+      <div class="bringer-header-mp">
+        <nav class="bringer-nav">
+          <ul class="main-menu" data-stagger-appear="fade-down" data-stagger-delay="75">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="services/software-development.html">Software Development</a>
+                </li>
+                <li>
+                  <a href="services/ai-development.html">AI Development</a>
+                </li>
+                <li>
+                  <a href="services/digital-marketing.html">Digital Marketing</a>
+                </li>
+                <li>
+                  <a href="services/ecommerce-integration.html">Ecommerce integration</a>
+                </li>
+                <li>
+                  <a href="services/ui-ux-design.html">UI/UX Design</a>
+                </li>
+                <li>
+                  <a href="#contact-us">Quick Consultation</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="services/serviceslist/index.html">All Services</a>
+            </li>
+            <li>
+              <a href="#portfolio">Portfolio</a>
+            </li>
+            <li>
+              <a href="#contact-us">Contact us</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- Header Button -->
+      <div class="btn-area d-flex justify-content-center mt-5 mt-sm-0">
+        <a href="#!" class="see-all-btn">
+          Get a Free Quote
+        </a>
+      </div>
     </div>
-  </section>
-  
-  
-  <!-- Video which follows you down the page -->
-  <canvas id="video-canvas" class="sticky-video"></canvas>
-           
-  <!-- Section: Steps -->            
-     <!-- Link Swiper's JS -->
-<!-- Link Swiper's CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Mobile Header -->
+    <div class="bringer-mobile-header-inner">
+      <a href="./" class="bringer-logo">
+        <img src="images/logo.png" alt="bringer." width="88" height="24">
+      </a>
+      <a href="#" class="bringer-mobile-menu-toggler">
+        <i class="bringer-menu-toggler-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </i>
+      </a>
+    </div>
+  </header>
 
-<!-- Link Swiper's JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Page Main -->
+  <main id="bringer-main">
+    <div class="stg-container">
+      <!-- Hero Section -->
+      <section>
+        <div class="bringer-hero-block bringer-hero-type01">
+          <!-- Main Line -->
+          <div class="stg-row stg-bottom-gap-l stg-m-bottom-gap-l">
+            <div class="stg-col-9 stg-tp-col-8 stg-m-col-12">
+              <!-- Title -->
+              <h1 class="bringer-page-title" data-split-appear="fade-up" data-split-unload="fade-up">Imagine the
+                Possibilities, Bring Visions to Reality.</h1>
+            </div>
+            <div class="stg-col-3 stg-tp-col-4 stg-m-col-12">
+              <!-- Social Proof -->
+              <div class="bringer-hero-social-proof">
+                <div data-stagger-appear="fade-up" data-stagger-delay="100" data-stagger-unload="fade-up">
+                  <img src="images/social-proof01.jpg" alt="Client 01">
+                  <img src="images/social-proof02.jpg" alt="Client 02">
+                  <img src="images/social-proof03.jpg" alt="Client 03">
+                  <a href="testimonials.html">24K+</a>
+                </div>
+                <p data-appear="fade-up" data-unload="fade-up" data-delay="200">Trusted by 24K+ clients</p>
+              </div>
+            </div>
+          </div><!-- .stg-row -->
 
-<style>
-/*----------------------
+          <!-- Masked Media Container -->
+          <div class="bringer-hero-media-wrap bringer-masked-bottom-right bringer-masked-block stg-bottom-gap-l"
+            data-appear="zoom-out" data-unload="zoom-out">
+            <!-- Masked Media -->
+            <div class="bringer-masked-media bringer-masked-media bringer-parallax-media">
+              <img src="images/home01-hero.jpg" alt="Unleash Your Creativity">
+            </div>
+            <!-- Content -->
+            <div class="bringer-masked-content at-bottom-right">
+              <a href="#page01" class="bringer-square-button" data-appear="fade-left">
+
+                <span class="bringer-icon bringer-icon-arrow-down"></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Additional Information Line -->
+          <div class="stg-row stg-valign-bottom">
+            <div class="stg-col-3 stg-tp-col-3 stg-m-col-6" data-appear="fade-up" data-delay="200"
+              data-unload="fade-up">
+              <div class="bringer-counter bringer-small-counter" data-delay="3000">
+                <div class="bringer-counter-number">420</div>
+                <div class="bringer-counter-label">Completed Projects</div>
+              </div><!-- .bringer-counter -->
+            </div>
+            <div class="stg-col-3 stg-tp-col-3 stg-m-col-6" data-appear="fade-up" data-delay="300"
+              data-unload="fade-up">
+              <div class="bringer-counter bringer-small-counter" data-delay="3000">
+                <div class="bringer-counter-number" data-suffix="+">12</div>
+                <div class="bringer-counter-label">Years of Experience</div>
+              </div><!-- .bringer-counter -->
+            </div>
+            <div class="stg-col-6 stg-tp-col-6 stg-m-col-12 stg-m-top-gap" data-appear="fade-up" data-delay="400"
+              data-unload="fade-up">
+              <p class="bringer-large-text">We help agencies, Innovators, and other Tech Dreamers To Transform their
+                concept into a tangible reality.</p>
+            </div>
+          </div><!-- .stg-row -->
+        </div><!-- .bringer-hero-block -->
+      </section>
+      <!-- Homepage Video -->
+      <section class="hero">
+        <video id="video" class="video" preload="auto" poster="" autoplay loop muted>
+          <source src="https://penimages.techrealm.pk/share/techrealm.MP4">
+        </video>
+
+        <div class="container hero-content">
+          <h2 class="hero__tagline"></h2>
+          <a id="js-video-trigger" class="video-trigger"></a>
+        </div>
+      </section>
+
+
+      <!-- Video which follows you down the page -->
+      <canvas id="video-canvas" class="sticky-video"></canvas>
+
+      <!-- Section: Steps -->
+      <!-- Link Swiper's JS -->
+      <!-- Link Swiper's CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+      <!-- Link Swiper's JS -->
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+      <style>
+        /*----------------------
   Hottest products section CSS
 -----------------------*/
 
-.home-products-slider-wrapper {
-  background-color: #f8f8f8;
-  border-radius: 32px;
-  padding: 40px 0;
-}
+        .home-products-slider-wrapper {
+          background-color: #f8f8f8;
+          border-radius: 32px;
+          padding: 40px 0;
+        }
 
-.prod-title {
-  color: #374151;
-  font-size: 30px;
-  font-weight: 700;
-}
+        .prod-title {
+          color: #374151;
+          font-size: 30px;
+          font-weight: 700;
+        }
 
-.swiper {
-  width: 100%;
-  margin-top: 30px;
-  padding: 25px 0;
-  position: relative;
-}
+        .swiper {
+          width: 100%;
+          margin-top: 30px;
+          padding: 25px 0;
+          position: relative;
+        }
 
-.prod-arrow {
-  position: relative;
-}
+        .prod-arrow {
+          position: relative;
+        }
 
-.prod-arrow .swiper-button-next,
-.prod-arrow .swiper-button-prev {
-  margin-top: 0;
-  position: absolute;
-  top: 50%;
-  width: 30px;
-  height: 30px;
-  transform: translateY(-50%);
-  color: #6b7280;
-  font-size: 16px;
-  font-weight: 700;
-}
+        .prod-arrow .swiper-button-next,
+        .prod-arrow .swiper-button-prev {
+          margin-top: 0;
+          position: absolute;
+          top: 50%;
+          width: 30px;
+          height: 30px;
+          transform: translateY(-50%);
+          color: #6b7280;
+          font-size: 16px;
+          font-weight: 700;
+        }
 
-.prod-arrow .swiper-button-next {
-  right: 0;
-}
+        .prod-arrow .swiper-button-next {
+          right: 0;
+        }
 
-.prod-arrow .swiper-button-prev {
-  right: 35px;
-  left: auto;
-}
+        .prod-arrow .swiper-button-prev {
+          right: 35px;
+          left: auto;
+        }
 
-.product-box {
-  background: #fff;
-  padding: 15px;
-  box-shadow: 0px 4px 28px 0px #5563801a;
-  border-radius: 16px;
-}
+        .product-box {
+          background: #fff;
+          padding: 15px;
+          box-shadow: 0px 4px 28px 0px #5563801a;
+          border-radius: 16px;
+        }
 
-.product-box .prod-badge {
-  background-color: rgba(255, 153, 0, 0.1);
-  color: #ff9900;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 5px 8px;
-  border-radius: 4px;
-}
+        .product-box .prod-badge {
+          background-color: rgba(255, 153, 0, 0.1);
+          color: #ff9900;
+          font-size: 15px;
+          font-weight: 700;
+          padding: 5px 8px;
+          border-radius: 4px;
+        }
 
-.product-box .prod-img {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-  height: 255px;
-  object-fit: contain;
-  margin: 10px 0;
-}
+        .product-box .prod-img {
+          display: block;
+          margin: 0 auto;
+          text-align: center;
+          width: 100%;
+          height: 255px;
+          object-fit: contain;
+          margin: 10px 0;
+        }
 
-.product-box .prod-code {
-  color: #6b7280;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
+        .product-box .prod-code {
+          color: #6b7280;
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
 
-.product-box .prod-name {
-  color: #374151;
-  font-weight: 700;
-  font-size: 20px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  min-height: 72px;
-}
+        .product-box .prod-name {
+          color: #374151;
+          font-weight: 700;
+          font-size: 20px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          min-height: 72px;
+        }
 
-.prod-price-cart {
-  margin-top: 25px;
-}
+        .prod-price-cart {
+          margin-top: 25px;
+        }
 
-.dollar {
-  color: #6b7280;
-  padding-right: 5px;
-}
+        .dollar {
+          color: #6b7280;
+          padding-right: 5px;
+        }
 
-.prod-inner-pagination {
-  position: relative;
-  width: auto !important;
-  bottom: 1px !important;
-}
+        .prod-inner-pagination {
+          position: relative;
+          width: auto !important;
+          bottom: 1px !important;
+        }
 
-.prod-inner-pagination .swiper-pagination-bullet {
-  height: 3px;
-  width: 12px;
-  border-radius: 2px;
-  background-color: #6b7280;
-}
+        .prod-inner-pagination .swiper-pagination-bullet {
+          height: 3px;
+          width: 12px;
+          border-radius: 2px;
+          background-color: #6b7280;
+        }
 
-.product-box:hover .prod-price-cart a img {
-  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(218deg) brightness(300%) contrast(648%);
-  margin-right: 5px;
-}
+        .product-box:hover .prod-price-cart a img {
+          filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(218deg) brightness(300%) contrast(648%);
+          margin-right: 5px;
+        }
 
-.prod-price-cart a {
-  transition: all 0.3s ease-in-out;
-  padding: 6px 10px;
-  color: #fff !important;
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 4px;
-  text-decoration: none;
-}
+        .prod-price-cart a {
+          transition: all 0.3s ease-in-out;
+          padding: 6px 10px;
+          color: #fff !important;
+          font-size: 16px;
+          font-weight: 700;
+          border-radius: 4px;
+          text-decoration: none;
+        }
 
-.product-box:hover .prod-price-cart a img {
-  transform: translate(-5px, 0);
-}
+        .product-box:hover .prod-price-cart a img {
+          transform: translate(-5px, 0);
+        }
 
-.product-box:hover .prod-price-cart a {
-  transition: all 0.3s ease-in-out;
-  background-color: #19c682;
-}
+        .product-box:hover .prod-price-cart a {
+          transition: all 0.3s ease-in-out;
+          background-color: #19c682;
+        }
 
-.product-box:hover .prod-price-cart a span {
-  display: inline-flex;
-  transition: all 0.3s ease-in-out;
-  color: #fff;
-}
+        .product-box:hover .prod-price-cart a span {
+          display: inline-flex;
+          transition: all 0.3s ease-in-out;
+          color: #fff;
+        }
 
-.prod-sell-info table {
-  margin-top: 10px;
-}
+        .prod-sell-info table {
+          margin-top: 10px;
+        }
 
-.prod-sell-info table tr td {
-  border-bottom: 1px solid #f3f4f6;
-  padding: 5px 0;
-}
+        .prod-sell-info table tr td {
+          border-bottom: 1px solid #f3f4f6;
+          padding: 5px 0;
+        }
 
-.prod-sell-info table tr td img {
-  width: 22px;
-  margin-right: 5px;
-}
+        .prod-sell-info table tr td img {
+          width: 22px;
+          margin-right: 5px;
+        }
 
-.prod-sell-info table tr td:first-child {
-  color: #6b7280;
-  font-size: 14px;
-}
+        .prod-sell-info table tr td:first-child {
+          color: #6b7280;
+          font-size: 14px;
+        }
 
-.prod-sell-info table tr td:last-child {
-  color: #374151;
-  font-size: 14px;
-  text-align: right;
-}
+        .prod-sell-info table tr td:last-child {
+          color: #374151;
+          font-size: 14px;
+          text-align: right;
+        }
 
-.see-all-btn {
-  background: #161616;
-  border: 2px solid transparent;
-  font-size: 12px; /* Reduced font size */
-  font-weight: 700;
-  color: #fff;
-  text-decoration: none;
-  min-width: 120px; /* Reduced minimum width */
-  min-height: 40px; /* Reduced minimum height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  transition: all 0.5s ease;
-}
+        .see-all-btn {
+          background: #161616;
+          border: 2px solid transparent;
+          font-size: 12px;
+          /* Reduced font size */
+          font-weight: 700;
+          color: #fff;
+          text-decoration: none;
+          min-width: 120px;
+          /* Reduced minimum width */
+          min-height: 40px;
+          /* Reduced minimum height */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 4px;
+          transition: all 0.5s ease;
+        }
 
 
-.see-all-btn:hover {
-  background: transparent;
-  border-color: #161616;
-  color: #161616;
-}
+        .see-all-btn:hover {
+          background: transparent;
+          border-color: #161616;
+          color: #161616;
+        }
 
-.swiper-slide a {
-  text-decoration: none;
-}
+        .swiper-slide a {
+          text-decoration: none;
+        }
 
-.prod-inner-slider .swiper {
-  padding: 0;
-}
+        .prod-inner-slider .swiper {
+          padding: 0;
+        }
 
-.prod-inner-pagination {
-  opacity: 0;
-}
+        .prod-inner-pagination {
+          opacity: 0;
+        }
 
-.product-box:hover .prod-inner-pagination {
-  opacity: 1;
-}
+        .product-box:hover .prod-inner-pagination {
+          opacity: 1;
+        }
 
-.prod-sell-info {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.7s ease-in;
-}
+        .prod-sell-info {
+          overflow: hidden;
+          max-height: 0;
+          transition: max-height 0.7s ease-in;
+        }
 
-.product-box:hover .prod-sell-info {
-  max-height: 200px;
-}
+        .product-box:hover .prod-sell-info {
+          max-height: 200px;
+        }
 
-.prod-price-cart a img {
-  width: 28px;
-}
-</style>
+        .prod-price-cart a img {
+          width: 28px;
+        }
+      </style>
 
-<section class="hottest-product-wrapper home-products-slider-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 d-flex justify-content-between">
-        <h2 class="prod-title">
-          Start Your Online Journey Now🔥
-        </h2>
-        <div class="prod-arrow">
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="swiper hoattest-products-slider">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide prod-inner-slider">
-              <div class="product-box">
-                <div class="d-flex justify-content-between">
-                  <div class="prod-badge">+$46.00 profit</div>
-                  <div class="swiper-pagination prod-inner-pagination"></div>
-                </div>
-                <div class="swiper imgSwiper mt-0">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <img class="prod-img" src="/images/everelegent.png" alt="img" class="w-100" />
-                    </div>
-                  </div>
-                </div>
-                <p class="prod-code">(Shopify) No Earnings</p>
-                <h4 class="prod-name">EverElegent.store Bundle (Shopify + 1 Year DOMAIN + Theme + On Page & Off Page SEO)</h4>
-                <div class="prod-price-cart d-flex justify-content-between">
-                  <h4 class="prod-name">
-                    <span class="dollar">$</span>745.00
-                  </h4>
-                  <a href="#!">
-                    <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" /> <span>Sell</span>
-                  </a>
-                </div>
-                <div class="prod-sell-info">
-                  <table class="w-100">
-                    <tbody>
-                      <tr>
-                        <td>Condition:</td>
-                        <td>New</td>
-                      </tr>
-                      <tr>
-                        <td>Units sold:</td>
-                        <td>7</td>
-                      </tr>
-                      <tr>
-                        <td>Price:</td>
-                        <td>🚀 20%</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+      <section class="hottest-product-wrapper home-products-slider-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 d-flex justify-content-between">
+              <h2 class="prod-title">
+                Start Your Online Journey Now🔥
+              </h2>
+              <div class="prod-arrow">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
               </div>
             </div>
-            <div class="swiper-slide prod-inner-slider">
-                <div class="product-box">
-                  <div class="d-flex justify-content-between">
-                    <div class="prod-badge">+$46.00 profit</div>
-                    <div class="swiper-pagination prod-inner-pagination"></div>
-                  </div>
-                  <div class="swiper imgSwiper mt-0">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <img class="prod-img" src="/images/toyman.png" alt="img" class="w-100" />
+            <div class="col-md-12">
+              <div class="swiper hoattest-products-slider">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide prod-inner-slider">
+                    <div class="product-box">
+                      <div class="d-flex justify-content-between">
+                        <div class="prod-badge">+$46.00 profit</div>
+                        <div class="swiper-pagination prod-inner-pagination"></div>
+                      </div>
+                      <div class="swiper imgSwiper mt-0">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <img class="prod-img" src="/images/everelegent.png" alt="img" class="w-100" />
+                          </div>
+                        </div>
+                      </div>
+                      <p class="prod-code">(Shopify) No Earnings</p>
+                      <h4 class="prod-name">EverElegent.store Bundle (Shopify + 1 Year DOMAIN + Theme + On Page & Off
+                        Page SEO)</h4>
+                      <div class="prod-price-cart d-flex justify-content-between">
+                        <h4 class="prod-name">
+                          <span class="dollar">$</span>745.00
+                        </h4>
+                        <a href="#!">
+                          <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" />
+                          <span>Sell</span>
+                        </a>
+                      </div>
+                      <div class="prod-sell-info">
+                        <table class="w-100">
+                          <tbody>
+                            <tr>
+                              <td>Condition:</td>
+                              <td>New</td>
+                            </tr>
+                            <tr>
+                              <td>Units sold:</td>
+                              <td>7</td>
+                            </tr>
+                            <tr>
+                              <td>Price:</td>
+                              <td>🚀 20%</td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>
-                  <p class="prod-code">(Shopify) No Earnings</p>
-                  <h4 class="prod-name">LittleJuniors Bundle (Shopify + 1 Year Domain + Theme + On Page & off Page SEO)</h4>
-                  <div class="prod-price-cart d-flex justify-content-between">
-                    <h4 class="prod-name">
-                      <span class="dollar">$</span>745.00
-                    </h4>
-                    <a href="#!">
-                      <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" /> <span>Sell</span>
-                    </a>
+                  <div class="swiper-slide prod-inner-slider">
+                    <div class="product-box">
+                      <div class="d-flex justify-content-between">
+                        <div class="prod-badge">+$46.00 profit</div>
+                        <div class="swiper-pagination prod-inner-pagination"></div>
+                      </div>
+                      <div class="swiper imgSwiper mt-0">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <img class="prod-img" src="/images/toyman.png" alt="img" class="w-100" />
+                          </div>
+                        </div>
+                      </div>
+                      <p class="prod-code">(Shopify) No Earnings</p>
+                      <h4 class="prod-name">LittleJuniors Bundle (Shopify + 1 Year Domain + Theme + On Page & off Page
+                        SEO)</h4>
+                      <div class="prod-price-cart d-flex justify-content-between">
+                        <h4 class="prod-name">
+                          <span class="dollar">$</span>745.00
+                        </h4>
+                        <a href="#!">
+                          <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" />
+                          <span>Sell</span>
+                        </a>
+                      </div>
+                      <div class="prod-sell-info">
+                        <table class="w-100">
+                          <tbody>
+                            <tr>
+                              <td>Condition:</td>
+                              <td>New</td>
+                            </tr>
+                            <tr>
+                              <td>Units sold:</td>
+                              <td>7</td>
+                            </tr>
+                            <tr>
+                              <td>Price:</td>
+                              <td>🚀 20%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
-                  <div class="prod-sell-info">
-                    <table class="w-100">
-                      <tbody>
-                        <tr>
-                          <td>Condition:</td>
-                          <td>New</td>
-                        </tr>
-                        <tr>
-                          <td>Units sold:</td>
-                          <td>7</td>
-                        </tr>
-                        <tr>
-                          <td>Price:</td>
-                          <td>🚀 20%</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                  <div class="swiper-slide prod-inner-slider">
+                    <div class="product-box">
+                      <div class="d-flex justify-content-between">
+                        <div class="prod-badge">+$46.00 profit</div>
+                        <div class="swiper-pagination prod-inner-pagination"></div>
+                      </div>
+                      <div class="swiper imgSwiper mt-0">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <img class="prod-img" src="/images/gifts.png" alt="img" class="w-100" />
+                          </div>
+                        </div>
+                      </div>
+                      <p class="prod-code">(Shopify) No Earnings</p>
+                      <h4 class="prod-name">GiftnGive.store Bundle (Shopify + 1 Year Domain + Theme + On Page & off Page
+                        SEO)</h4>
+                      <div class="prod-price-cart d-flex justify-content-between">
+                        <h4 class="prod-name">
+                          <span class="dollar">$</span>745.00
+                        </h4>
+                        <a href="#!">
+                          <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" />
+                          <span>Sell</span>
+                        </a>
+                      </div>
+                      <div class="prod-sell-info">
+                        <table class="w-100">
+                          <tbody>
+                            <tr>
+                              <td>Condition:</td>
+                              <td>New</td>
+                            </tr>
+                            <tr>
+                              <td>Units sold:</td>
+                              <td>7</td>
+                            </tr>
+                            <tr>
+                              <td>Price:</td>
+                              <td>🚀 20%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
+                  <div class="swiper-slide prod-inner-slider">
+                    <div class="product-box">
+                      <div class="d-flex justify-content-between">
+                        <div class="prod-badge">+$46.00 profit</div>
+                        <div class="swiper-pagination prod-inner-pagination"></div>
+                      </div>
+                      <div class="swiper imgSwiper mt-0">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <img class="prod-img" src="/images/gifts.png" alt="img" class="w-100" />
+                          </div>
+                        </div>
+                      </div>
+                      <p class="prod-code">(Shopify) No Earnings</p>
+                      <h4 class="prod-name">GiftnGive.store Bundle (Shopify + 1 Year Domain + Theme + On Page & off Page
+                        SEO)</h4>
+                      <div class="prod-price-cart d-flex justify-content-between">
+                        <h4 class="prod-name">
+                          <span class="dollar">$</span>745.00
+                        </h4>
+                        <a href="#!">
+                          <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" />
+                          <span>Sell</span>
+                        </a>
+                      </div>
+                      <div class="prod-sell-info">
+                        <table class="w-100">
+                          <tbody>
+                            <tr>
+                              <td>Condition:</td>
+                              <td>New</td>
+                            </tr>
+                            <tr>
+                              <td>Units sold:</td>
+                              <td>7</td>
+                            </tr>
+                            <tr>
+                              <td>Price:</td>
+                              <td>🚀 20%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide prod-inner-slider">
+                    <div class="product-box">
+                      <div class="d-flex justify-content-between">
+                        <div class="prod-badge">+$46.00 profit</div>
+                        <div class="swiper-pagination prod-inner-pagination"></div>
+                      </div>
+                      <div class="swiper imgSwiper mt-0">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <img class="prod-img" src="/images/gifts.png" alt="img" class="w-100" />
+                          </div>
+                        </div>
+                      </div>
+                      <p class="prod-code">(Shopify) No Earnings</p>
+                      <h4 class="prod-name">GiftnGive.store Bundle (Shopify + 1 Year Domain + Theme + On Page & off Page
+                        SEO)</h4>
+                      <div class="prod-price-cart d-flex justify-content-between">
+                        <h4 class="prod-name">
+                          <span class="dollar">$</span>745.00
+                        </h4>
+                        <a href="#!">
+                          <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" />
+                          <span>Sell</span>
+                        </a>
+                      </div>
+                      <div class="prod-sell-info">
+                        <table class="w-100">
+                          <tbody>
+                            <tr>
+                              <td>Condition:</td>
+                              <td>New</td>
+                            </tr>
+                            <tr>
+                              <td>Units sold:</td>
+                              <td>7</td>
+                            </tr>
+                            <tr>
+                              <td>Price:</td>
+                              <td>🚀 20%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide prod-inner-slider">
+                    <div class="product-box">
+                      <div class="d-flex justify-content-between">
+                        <div class="prod-badge">+$46.00 profit</div>
+                        <div class="swiper-pagination prod-inner-pagination"></div>
+                      </div>
+                      <div class="swiper imgSwiper mt-0">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <img class="prod-img" src="/images/gifts.png" alt="img" class="w-100" />
+                          </div>
+                        </div>
+                      </div>
+                      <p class="prod-code">(Shopify) No Earnings</p>
+                      <h4 class="prod-name">GiftnGive.store Bundle (Shopify + 1 Year Domain + Theme + On Page & off Page
+                        SEO)</h4>
+                      <div class="prod-price-cart d-flex justify-content-between">
+                        <h4 class="prod-name">
+                          <span class="dollar">$</span>745.00
+                        </h4>
+                        <a href="#!">
+                          <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" />
+                          <span>Sell</span>
+                        </a>
+                      </div>
+                      <div class="prod-sell-info">
+                        <table class="w-100">
+                          <tbody>
+                            <tr>
+                              <td>Condition:</td>
+                              <td>New</td>
+                            </tr>
+                            <tr>
+                              <td>Units sold:</td>
+                              <td>7</td>
+                            </tr>
+                            <tr>
+                              <td>Price:</td>
+                              <td>🚀 20%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Repeat similar structure for other slides -->
+
                 </div>
               </div>
 
-              <div class="swiper-slide prod-inner-slider">
-                <div class="product-box">
-                  <div class="d-flex justify-content-between">
-                    <div class="prod-badge">+$46.00 profit</div>
-                    <div class="swiper-pagination prod-inner-pagination"></div>
-                  </div>
-                  <div class="swiper imgSwiper mt-0">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <img class="prod-img" src="/images/gifts.png" alt="img" class="w-100" />
-                      </div>
-                    </div>
-                  </div>
-                  <p class="prod-code">(Shopify) No Earnings</p>
-                  <h4 class="prod-name">GiftnGive.store Bundle (Shopify + 1 Year Domain + Theme + On Page & off Page SEO)</h4>
-                  <div class="prod-price-cart d-flex justify-content-between">
-                    <h4 class="prod-name">
-                      <span class="dollar">$</span>745.00
-                    </h4>
-                    <a href="#!">
-                      <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" /> <span>Sell</span>
-                    </a>
-                  </div>
-                  <div class="prod-sell-info">
-                    <table class="w-100">
-                      <tbody>
-                        <tr>
-                          <td>Condition:</td>
-                          <td>New</td>
-                        </tr>
-                        <tr>
-                          <td>Units sold:</td>
-                          <td>7</td>
-                        </tr>
-                        <tr>
-                          <td>Price:</td>
-                          <td>🚀 20%</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+              <div class="btn-area d-flex justify-content-center mt-5 mt-sm-0">
+                <a href="#!" class="see-all-btn">
+                  Buy A Store Now
+                </a>
               </div>
-              <div class="swiper-slide prod-inner-slider">
-                <div class="product-box">
-                  <div class="d-flex justify-content-between">
-                    <div class="prod-badge">+$46.00 profit</div>
-                    <div class="swiper-pagination prod-inner-pagination"></div>
-                  </div>
-                  <div class="swiper imgSwiper mt-0">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <img class="prod-img" src="/images/gifts.png" alt="img" class="w-100" />
-                      </div>
-                    </div>
-                  </div>
-                  <p class="prod-code">(Shopify) No Earnings</p>
-                  <h4 class="prod-name">GiftnGive.store Bundle (Shopify + 1 Year Domain + Theme + On Page & off Page SEO)</h4>
-                  <div class="prod-price-cart d-flex justify-content-between">
-                    <h4 class="prod-name">
-                      <span class="dollar">$</span>745.00
-                    </h4>
-                    <a href="#!">
-                      <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" /> <span>Sell</span>
-                    </a>
-                  </div>
-                  <div class="prod-sell-info">
-                    <table class="w-100">
-                      <tbody>
-                        <tr>
-                          <td>Condition:</td>
-                          <td>New</td>
-                        </tr>
-                        <tr>
-                          <td>Units sold:</td>
-                          <td>7</td>
-                        </tr>
-                        <tr>
-                          <td>Price:</td>
-                          <td>🚀 20%</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide prod-inner-slider">
-                <div class="product-box">
-                  <div class="d-flex justify-content-between">
-                    <div class="prod-badge">+$46.00 profit</div>
-                    <div class="swiper-pagination prod-inner-pagination"></div>
-                  </div>
-                  <div class="swiper imgSwiper mt-0">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <img class="prod-img" src="/images/gifts.png" alt="img" class="w-100" />
-                      </div>
-                    </div>
-                  </div>
-                  <p class="prod-code">(Shopify) No Earnings</p>
-                  <h4 class="prod-name">GiftnGive.store Bundle (Shopify + 1 Year Domain + Theme + On Page & off Page SEO)</h4>
-                  <div class="prod-price-cart d-flex justify-content-between">
-                    <h4 class="prod-name">
-                      <span class="dollar">$</span>745.00
-                    </h4>
-                    <a href="#!">
-                      <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" /> <span>Sell</span>
-                    </a>
-                  </div>
-                  <div class="prod-sell-info">
-                    <table class="w-100">
-                      <tbody>
-                        <tr>
-                          <td>Condition:</td>
-                          <td>New</td>
-                        </tr>
-                        <tr>
-                          <td>Units sold:</td>
-                          <td>7</td>
-                        </tr>
-                        <tr>
-                          <td>Price:</td>
-                          <td>🚀 20%</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide prod-inner-slider">
-                <div class="product-box">
-                  <div class="d-flex justify-content-between">
-                    <div class="prod-badge">+$46.00 profit</div>
-                    <div class="swiper-pagination prod-inner-pagination"></div>
-                  </div>
-                  <div class="swiper imgSwiper mt-0">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <img class="prod-img" src="/images/gifts.png" alt="img" class="w-100" />
-                      </div>
-                    </div>
-                  </div>
-                  <p class="prod-code">(Shopify) No Earnings</p>
-                  <h4 class="prod-name">GiftnGive.store Bundle (Shopify + 1 Year Domain + Theme + On Page & off Page SEO)</h4>
-                  <div class="prod-price-cart d-flex justify-content-between">
-                    <h4 class="prod-name">
-                      <span class="dollar">$</span>745.00
-                    </h4>
-                    <a href="#!">
-                      <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" alt="cart-img" /> <span>Sell</span>
-                    </a>
-                  </div>
-                  <div class="prod-sell-info">
-                    <table class="w-100">
-                      <tbody>
-                        <tr>
-                          <td>Condition:</td>
-                          <td>New</td>
-                        </tr>
-                        <tr>
-                          <td>Units sold:</td>
-                          <td>7</td>
-                        </tr>
-                        <tr>
-                          <td>Price:</td>
-                          <td>🚀 20%</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-                            
-            <!-- Repeat similar structure for other slides -->
+            </div>
 
           </div>
+
         </div>
-        
-        <div class="btn-area d-flex justify-content-center mt-5 mt-sm-0">
-          <a href="#!" class="see-all-btn">
-            Buy A Store Now
-          </a>
-        </div>
-      </div>
-      
-    </div>
-    
-  </div>
-</section>
-<script>
-    var swiper = new Swiper(".hoattest-products-slider", {
-      slidesPerView: 4,
-      spaceBetween: 25,
+      </section>
+      <script>
+        var swiper = new Swiper("          est-products-slide                slidesPerVie                spaceBet            ,
       navigation: {
-        nextEl: ".hottest-product-wrapper .swiper-button-next",
-        prevEl: ".hottest-product-wrapper .swiper-button-prev"
-      },
-      breakpoints: {
-        320: {
-          slidesPerView: 1
+          nextEl: ".hottest-product-            .swiper-button-next",
+          prevEl: ".hottest-product          er           r-button-prev"
+            
+                    s: {
+            320: PerView
+          },
+          480: PerView
         },
-        480: {
-          slidesPerView: 2
-        },
-        768: {
-          slidesPerView: 3
-        },
-        992: {
-          slidesPerView: 3
-        },
-        1200: {
-          slidesPerView: 4,
-          spaceBetween: 25
+          768: PerView                },
+        992: PerView:               },
+        1200: slidesPerView:                         ce        een: 5             }
+      }
+    });
+
+        var swiper2           Swiper(".imgSwipe                slidesPe           1,
+      nested:
+        spaceBe,
+          pagination: {
+          l:        wipepagination"
         }
-      }
     });
-  
-    var swiper2 = new Swiper(".imgSwiper", {
-      slidesPerView: 1,
-      nested: true,
-      spaceBetween: 5,
-      pagination: {
-        el: ".swiper-pagination"
-      }
-    });
-  </script>
-  
-
-            <!-- Section: About Us -->
-            <section class="backlight-bottom divider-top">
-                <div class="stg-row stg-large-gap stg-valign-middle stg-tp-column-reverse">
-                    <div class="stg-col-6" data-appear="fade-right" data-unload="fade-left">
-                        <h3>Challenge To All!</h3>
-                        <p class="bringer-large-text">We're a dedicated team of developers, designers, and IT experts,  Let us bring your vision to life.</p>
-                        <p>We are excited to announce our latest Challenge! Think of any app in the world, and we'll turn it into reality. Yes, you heard it right - any app! Whether it's a game-changing productivity tool, a revolutionary social networking platform, or an innovative solution to a common problem, we're up for the challenge. Our team of passionate and experienced professionals is ready to bring your ideas to life. So, what are you waiting for? Dream big, and let's make it happen!</p>
-                        <div class="align-right">
-                            <a href="about-us.html" class="bringer-arrow-link">Learn More About Challenge</a>
-                        </div>
-                    </div>
-                    <div class="stg-col-6 stg-tp-bottom-gap-l stg-m-bottom-gap" data-unload="fade-right" data-appear="fade-left">
-                        <div class="bringer-parallax-media">
-                            <img class="bringer-lazy" src="images/campagin.png" data-src="images/campagin.png" alt="About Us" width="960" height="960">
-                        </div>
-                    </div>
-                </div><!-- .stg-row -->
-            </section>
-
-          <style>
-/* Chat widget button styles */
-.chat-widget-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #fae794;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 9999;
-}
-
-.chat-widget-button img {
-    width: 30px; /* Adjust the size of the chat icon as needed */
-    height: auto;
-}
-
-/* Chat widget container styles */
-.chat-widget-container {
-    position: fixed;
-    bottom: 90px; /* Adjust this value based on the size of your button */
-    right: 20px;
-    width: 300px;
-    height: 400px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: none; /* Initially hide the chat widget */
-    z-index: 9998;
-}
-
-/* Your other styles go here */
+      </script>
 
 
-</style>
+      <!-- Section: About Us -->
+      <section class="backlight-bottom divider-top">
+        <div class="stg-row stg-large-gap stg-valign-middle stg-tp-column-reverse">
+          <div class="stg-col-6" data-appear="fade-right" data-unload="fade-left">
+            <h3>Challenge To All!</h3>
+            <p class="bringer-large-text">We're a dedicated team of developers, designers, and IT experts, Let us bring
+              your vision to life.</p>
+            <p>We are excited to announce our latest Challenge! Think of any app in the world, and we'll turn it into
+              reality. Yes, you heard it right - any app! Whether it's a game-changing productivity tool, a
+              revolutionary social networking platform, or an innovative solution to a common problem, we're up for the
+              challenge. Our team of passionate and experienced professionals is ready to bring your ideas to life. So,
+              what are you waiting for? Dream big, and let's make it happen!</p>
+            <div class="align-right">
+              <a href="about-us.html" class="bringer-arrow-link">Learn More About Challenge</a>
+            </div>
+          </div>
+          <div class="stg-col-6 stg-tp-bottom-gap-l stg-m-bottom-gap" data-unload="fade-right" data-appear="fade-left">
+            <div class="bringer-parallax-media">
+              <img class="bringer-lazy" src="images/campagin.png" data-src="images/campagin.png" alt="About Us"
+                width="960" height="960">
+            </div>
+          </div>
+        </div><!-- .stg-row -->
+      </section>
 
-            <!-- Section: Our Services -->
-            <section class="backlight-top">
-                <!-- Section Title -->
-                <div class="stg-row bringer-section-title">
-                    <div class="stg-col-8 stg-offset-2">
-                        <div class="align-center">
-                            <h2 data-appear="fade-up" data-unload="fade-up">Our Services</h2>
-                            <p class="bringer-large-text" data-appear="fade-up" data-unload="fade-up" data-delay="100">We offer a wide range of IT services to help businesses of all sizes achieve their goals. Our services include:</p>
-                        </div>
-                    </div>
+      <style>
+        /* Chat widget button styles */
+        .chat-widget-button {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 60px;
+          height: 60px;
+          background-color: #fae794;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          z-index: 9999;
+        }
+
+        .chat-widget-button img {
+          width: 30px;
+          /* Adjust the size of the chat icon as needed */
+          height: auto;
+        }
+
+        /* Chat widget container styles */
+        .chat-widget-container {
+          position: fixed;
+          bottom: 90px;
+          /* Adjust this value based on the size of your button */
+          right: 20px;
+          width: 300px;
+          height: 400px;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          display: none;
+          /* Initially hide the chat widget */
+          z-index: 9998;
+        }
+
+        /* Your other styles go here */
+      </style>
+
+      <!-- Section: Our Services -->
+      <section class="backlight-top">
+        <!-- Section Title -->
+        <div class="stg-row bringer-section-title">
+          <div class="stg-col-8 stg-offset-2">
+            <div class="align-center">
+              <h2 data-appear="fade-up" data-unload="fade-up">Our Services</h2>
+              <p class="bringer-large-text" data-appear="fade-up" data-unload="fade-up" data-delay="100">We offer a wide
+                range of IT services to help businesses of all sizes achieve their goals. Our services include:</p>
+            </div>
+          </div>
+        </div>
+        <!-- Services List -->
+        <div class="bringer-detailed-list-wrap" data-appear="fade-up" data-unload="fade-up" data-delay="200">
+          <ul class="bringer-detailed-list">
+            <li>
+              <div class="bringer-detailed-list-title">
+                <h4>Software Development<span class="bringer-accent">.</span></h4>
+              </div>
+              <div class="bringer-detailed-list-description">
+                <p>Emphasizing on developing any software you want, anything you can imagine. From simple applications
+                  to complex systems, we bring your ideas to life with precision and expertise. Our team of skilled
+                  developers ensures top-notch quality and timely delivery, making your software dreams a reality. Let's
+                  innovate together and create software that revolutionizes your industry.</p>
+              </div>
+              <div class="bringer-detailed-list-button">
+                <span class="bringer-icon bringer-icon-explore"></span>
+              </div>
+              <a href="services/Software-Development/index.html"></a>
+            </li>
+            <li>
+              <div class="bringer-detailed-list-title">
+                <h4>AI Development<span class="bringer-accent">.</span></h4>
+              </div>
+              <div class="bringer-detailed-list-description">
+                <p>Providing customized AI solutions tailored to your needs. Our AI development services encompass a
+                  wide range of applications, from machine learning algorithms to natural language processing. We
+                  analyze your requirements meticulously to design AI systems that optimize processes and drive
+                  efficiency. With our expertise, your business can harness the power of AI to gain a competitive edge
+                  in the market.</p>
+              </div>
+              <div class="bringer-detailed-list-button">
+                <span class="bringer-icon bringer-icon-explore"></span>
+              </div>
+              <a href="services/AI-Development/index.html"></a>
+            </li>
+            <li>
+              <div class="bringer-detailed-list-title">
+                <h4>IT Investments<span class="bringer-accent">.</span></h4>
+              </div>
+              <div class="bringer-detailed-list-description">
+                <p>Invest in IT, BPO, or other IT projects for potential growth. Our IT investment services provide
+                  strategic guidance and financial support for projects with promising prospects. Whether it's upgrading
+                  infrastructure or exploring new technological ventures, we help you make informed investment
+                  decisions. Partner with us to capitalize on emerging opportunities and propel your business towards
+                  success.</p>
+              </div>
+              <div class="bringer-detailed-list-button">
+                <span class="bringer-icon bringer-icon-explore"></span>
+              </div>
+              <a href="services/IT-Investments/index.html"></a>
+            </li>
+            <li>
+              <div class="bringer-detailed-list-title">
+                <h4>Infrastructure Management and Deployment<span class="bringer-accent">.</span></h4>
+              </div>
+              <div class="bringer-detailed-list-description">
+                <p>Consult us for the cheapest store/software/more deployment and passive running. Our infrastructure
+                  management and deployment services optimize your resources for maximum efficiency and
+                  cost-effectiveness. We analyze your needs and offer tailored solutions to streamline operations and
+                  minimize downtime. With our expertise, you can focus on your core business while we handle the
+                  complexities of infrastructure management.</p>
+              </div>
+              <div class="bringer-detailed-list-button">
+                <span class="bringer-icon bringer-icon-explore"></span>
+              </div>
+              <a href="services/Infrastructure/index.html"></a>
+            </li>
+            <li>
+              <div class="bringer-detailed-list-title">
+                <h4>Digital Marketing<span class="bringer-accent">.</span></h4>
+              </div>
+              <div class="bringer-detailed-list-description">
+                <p>Offering organic and marketing campaigns tailored to your brand. Our digital marketing services
+                  combine creativity with data-driven strategies to deliver measurable results. From SEO and social
+                  media marketing to content creation and PPC campaigns, we help you connect with your target audience
+                  and drive engagement. Let us elevate your online presence and amplify your brand's reach in the
+                  digital landscape.</p>
+              </div>
+              <div class="bringer-detailed-list-button">
+                <span class="bringer-icon bringer-icon-explore"></span>
+              </div>
+              <a href="services/Digital-Marketing/index.html"></a>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="align-center" data-appear="fade-up" data-unload="fade-up" data-delay="100">
+          <a href="portfolio-slider.html" class="bringer-button" style="background-color: #000; color: #fff;">Explore
+            More</a>
+        </div>
+      </section>
+
+      <!-- Section: CTA -->
+      <section data-padding="bottom">
+        <div class="bringer-masked-cta bringer-masked-block" data-unload="fade-down">
+          <form action="mail-short.php" method="post" data-fill-error="Please, fill out the form."
+            class="bringer-contact-form is-short bringer-masked-media" data-appear="fade-up">
+            <div class="bringer-form-content bringer-cta-form">
+              <div class="bringer-cta-form-content" data-appear="fade-up" data-delay="100">
+                <div style="background-color: #000; color: #fff;" id='contact-us' class="bringer-cta-title">Ready to set
+                  your Brand ablaze?</div>
+                <input style="background-color: #000; color: #fff;" type="email" id="subscribe_email"
+                  name="subscribe_email" placeholder="email@example.com" required="">
+              </div>
+              <div class="bringer-cta-form-button" data-appear="fade-up" data-delay="200">
+                <button type="submit">
+                  <span class="bringer-icon bringer-icon-arrow-submit"></span>
+                </button>
+              </div>
+              <div class="bringer-contact-form__response"></div>
+            </div>
+            <span class="bringer-form-spinner"></span>
+          </form>
+          <div class="bringer-masked-cta-content bringer-masked-content at-top-right">
+            <p class="bringer-large-text" data-appear="fade-down">Let's craft a visual identity that ignites passion and
+              loyalty. ✨</p>
+          </div>
+        </div>
+      </section>
+    </div><!-- .stg-container -->
+
+    <!-- Footer -->
+    <footer id="bringer-footer" data-appear="fade-up" data-unload="fade-down">
+      <!-- Footer Widgets Area -->
+      <div class="bringer-footer-widgets">
+        <div class="stg-container">
+          <div class="stg-row" data-stagger-appear="fade-left" data-stagger-delay="100">
+            <div class="stg-col-5 stg-tp-col-12 stg-tp-bottom-gap-l">
+              <div class="bringer-info-widget">
+                <a href="./" class="bringer-logo footer-logo">
+                  <img src="images/logo.png" alt="bringer." width="88" height="24">
+                </a>
+                <div class="bringer-info-description">We're a dedicated team of developers, designers, and IT experts,
+                  Let us bring your vision to life.</div>
+                <span class="bringer-label">Follow us:</span>
+                <ul class="bringer-socials-list" data-stagger-appear="fade-up" data-stagger-delay="75">
+                  <li>
+                    <a href="https://www.facebook.com/TechRealm.Pakistan" target="_blank"
+                      class="bringer-socials-facebook">
+                      <i></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/techrealm.pakistan/" target="_blank"
+                      class="bringer-socials-instagram">
+                      <i></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/TechRealmPk" target="_blank" class="bringer-socials-x">
+                      <i></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/company/93270722/" target="_blank" class="bringer-socials-tiktok">
+                      <i></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="stg-col-2 stg-offset-1 stg-tp-col-4 stg-m-col-4">
+              <div class="bringer-widget">
+                <h6>Quick Services</h6>
+                <div class="bringer-menu-widget">
+                  <ul>
+                    <li><a href="service-details.html">Software Development</a></li>
+                    <li><a href="service-details.html">AI Development</a></li>
+                    <li><a href="service-details.html">Digital Marketing</a></li>
+                    <li><a href="service-details.html">Ecommerce integration</a></li>
+                    <li><a href="service-details.html">Products</a></li>
+                  </ul>
                 </div>
-                <!-- Services List -->
-                <div class="bringer-detailed-list-wrap" data-appear="fade-up" data-unload="fade-up" data-delay="200">
-                    <ul class="bringer-detailed-list">
-                        <li>
-                            <div class="bringer-detailed-list-title">
-                                <h4>Software Development<span class="bringer-accent">.</span></h4>
-                            </div>
-                            <div class="bringer-detailed-list-description">
-                                <p>Emphasizing on developing any software you want, anything you can imagine. From simple applications to complex systems, we bring your ideas to life with precision and expertise. Our team of skilled developers ensures top-notch quality and timely delivery, making your software dreams a reality. Let's innovate together and create software that revolutionizes your industry.</p>
-                            </div>
-                            <div class="bringer-detailed-list-button">
-                                <span  class="bringer-icon bringer-icon-explore"></span>
-                            </div>
-                            <a href="services/Software-Development/index.html"></a>
-                        </li>
-                        <li>
-                            <div class="bringer-detailed-list-title">
-                                <h4>AI Development<span class="bringer-accent">.</span></h4>
-                            </div>
-                            <div class="bringer-detailed-list-description">
-                                <p>Providing customized AI solutions tailored to your needs. Our AI development services encompass a wide range of applications, from machine learning algorithms to natural language processing. We analyze your requirements meticulously to design AI systems that optimize processes and drive efficiency. With our expertise, your business can harness the power of AI to gain a competitive edge in the market.</p>
-                            </div>
-                            <div class="bringer-detailed-list-button">
-                                <span class="bringer-icon bringer-icon-explore"></span>
-                            </div>
-                            <a href="services/AI-Development/index.html"></a>
-                        </li>
-                        <li>
-                            <div class="bringer-detailed-list-title">
-                                <h4>IT Investments<span class="bringer-accent">.</span></h4>
-                            </div>
-                            <div class="bringer-detailed-list-description">
-                                <p>Invest in IT, BPO, or other IT projects for potential growth. Our IT investment services provide strategic guidance and financial support for projects with promising prospects. Whether it's upgrading infrastructure or exploring new technological ventures, we help you make informed investment decisions. Partner with us to capitalize on emerging opportunities and propel your business towards success.</p>
-                            </div>
-                            <div class="bringer-detailed-list-button">
-                                <span class="bringer-icon bringer-icon-explore"></span>
-                            </div>
-                            <a href="services/IT-Investments/index.html"></a>
-                        </li>
-                        <li>
-                            <div class="bringer-detailed-list-title">
-                                <h4>Infrastructure Management and Deployment<span class="bringer-accent">.</span></h4>
-                            </div>
-                            <div class="bringer-detailed-list-description">
-                                <p>Consult us for the cheapest store/software/more deployment and passive running. Our infrastructure management and deployment services optimize your resources for maximum efficiency and cost-effectiveness. We analyze your needs and offer tailored solutions to streamline operations and minimize downtime. With our expertise, you can focus on your core business while we handle the complexities of infrastructure management.</p>
-                            </div>
-                            <div class="bringer-detailed-list-button">
-                                <span class="bringer-icon bringer-icon-explore"></span>
-                            </div>
-                            <a href="services/Infrastructure/index.html"></a>
-                        </li>
-                        <li>
-                            <div class="bringer-detailed-list-title">
-                                <h4>Digital Marketing<span class="bringer-accent">.</span></h4>
-                            </div>
-                            <div class="bringer-detailed-list-description">
-                                <p>Offering organic and marketing campaigns tailored to your brand. Our digital marketing services combine creativity with data-driven strategies to deliver measurable results. From SEO and social media marketing to content creation and PPC campaigns, we help you connect with your target audience and drive engagement. Let us elevate your online presence and amplify your brand's reach in the digital landscape.</p>
-                            </div>
-                            <div class="bringer-detailed-list-button">
-                                <span class="bringer-icon bringer-icon-explore"></span>
-                            </div>
-                            <a href="services/Digital-Marketing/index.html"></a>
-                        </li>
-                    </ul>
+              </div><!-- .bringer-widget -->
+            </div>
+            <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
+              <div class="bringer-widget">
+                <h6>Free Services</h6>
+                <div class="bringer-menu-widget">
+                  <ul>
+                    <li><a href="pricing.html">Imagine Any App</a></li>
+                    <li><a href="faq.html">Help the world</a></li>
+                    <li><a href="services.html">Learn AI</a></li>
+                    <li><a href="#">Consulation</a></li>
+                    <li><a href="#">Create a store</a></li>
+                  </ul>
                 </div>
-                
-                
-                <div class="align-center" data-appear="fade-up" data-unload="fade-up" data-delay="100">
-                    <a href="portfolio-slider.html" class="bringer-button" style="background-color: #000; color: #fff;">Explore More</a>
+              </div><!-- .bringer-widget -->
+            </div>
+            <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
+              <div class="bringer-widget">
+                <h6>Navigation</h6>
+                <div class="bringer-menu-widget">
+                  <ul>
+                    <li><a href="about-us.html">Services</a></li>
+                    <li><a href="contacts.html">Get in Touch</a></li>
+                    <li><a href="contacts.html">FAQ</a></li>
+                  </ul>
                 </div>
-            </section>
-
-            <!-- Section: CTA -->
-            <section data-padding="bottom">
-                <div class="bringer-masked-cta bringer-masked-block" data-unload="fade-down">
-                    <form action="mail-short.php" method="post" data-fill-error="Please, fill out the form." class="bringer-contact-form is-short bringer-masked-media" data-appear="fade-up">
-                        <div class="bringer-form-content bringer-cta-form">
-                            <div class="bringer-cta-form-content" data-appear="fade-up" data-delay="100">
-                                <div style="background-color: #000; color: #fff;" id='contact-us'class="bringer-cta-title">Ready to set your Brand ablaze?</div>
-                                <input style="background-color: #000; color: #fff;" type="email" id="subscribe_email" name="subscribe_email" placeholder="email@example.com" required="">
-                            </div>
-                            <div class="bringer-cta-form-button" data-appear="fade-up" data-delay="200">
-                                <button type="submit">
-                                    <span class="bringer-icon bringer-icon-arrow-submit"></span>
-                                </button>
-                            </div>
-                            <div class="bringer-contact-form__response"></div>
-                        </div>
-                        <span class="bringer-form-spinner"></span>
-                    </form>
-                    <div class="bringer-masked-cta-content bringer-masked-content at-top-right">
-                        <p class="bringer-large-text" data-appear="fade-down">Let's craft a visual identity that ignites passion and loyalty. ✨</p>
-                    </div>
-                </div>
-            </section>
+              </div><!-- .bringer-widget -->
+            </div>
+          </div><!-- .stg-row -->
         </div><!-- .stg-container -->
+      </div><!-- .bringer-footer-widgets -->
 
-        <!-- Footer -->
-        <footer id="bringer-footer" data-appear="fade-up" data-unload="fade-down">
-            <!-- Footer Widgets Area -->
-            <div class="bringer-footer-widgets">
-                <div class="stg-container">
-                    <div class="stg-row" data-stagger-appear="fade-left" data-stagger-delay="100">
-                        <div class="stg-col-5 stg-tp-col-12 stg-tp-bottom-gap-l">
-                            <div class="bringer-info-widget">
-                                <a href="./" class="bringer-logo footer-logo">
-                                    <img src="images/logo.png" alt="bringer." width="88" height="24">
-                                </a>
-                                <div class="bringer-info-description">We're a dedicated team of developers, designers, and IT experts, Let us bring your vision to life.</div>
-                                <span class="bringer-label">Follow us:</span>
-                                <ul class="bringer-socials-list" data-stagger-appear="fade-up" data-stagger-delay="75">
-                                    <li>
-                                        <a href="https://www.facebook.com/TechRealm.Pakistan" target="_blank" class="bringer-socials-facebook">
-                                            <i></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/techrealm.pakistan/" target="_blank" class="bringer-socials-instagram">
-                                            <i></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/TechRealmPk" target="_blank" class="bringer-socials-x">
-                                            <i></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/company/93270722/" target="_blank" class="bringer-socials-tiktok">
-                                            <i></i>
-                                        </a>
-                                    </li>                                    
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="stg-col-2 stg-offset-1 stg-tp-col-4 stg-m-col-4">
-                            <div class="bringer-widget">
-                                <h6>Quick Services</h6>
-                                <div class="bringer-menu-widget">
-                                    <ul>
-                                        <li><a href="service-details.html">Software Development</a></li>
-                                        <li><a href="service-details.html">AI Development</a></li>
-                                        <li><a href="service-details.html">Digital Marketing</a></li>
-                                        <li><a href="service-details.html">Ecommerce integration</a></li>
-                                        <li><a href="service-details.html">Products</a></li>
-                                    </ul>
-                                </div>
-                            </div><!-- .bringer-widget -->
-                        </div>                        
-                        <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
-                            <div class="bringer-widget">
-                                <h6>Free Services</h6>
-                                <div class="bringer-menu-widget">
-                                    <ul>
-                                        <li><a href="pricing.html">Imagine Any App</a></li>
-                                        <li><a href="faq.html">Help the world</a></li>
-                                        <li><a href="services.html">Learn AI</a></li>
-                                        <li><a href="#">Consulation</a></li>
-                                        <li><a href="#">Create a store</a></li>
-                                    </ul>
-                                </div>
-                            </div><!-- .bringer-widget -->
-                        </div>
-                        <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
-                            <div class="bringer-widget">
-                                <h6>Navigation</h6>
-                                <div class="bringer-menu-widget">
-                                    <ul>
-                                        <li><a href="about-us.html">Services</a></li>                                                                   
-                                        <li><a href="contacts.html">Get in Touch</a></li>
-                                        <li><a href="contacts.html">FAQ</a></li>
-                                    </ul>
-                                </div>
-                            </div><!-- .bringer-widget -->
-                        </div>
-                    </div><!-- .stg-row -->
-                </div><!-- .stg-container -->
-            </div><!-- .bringer-footer-widgets -->
+      <!-- Footer Copyright Line -->
+      <div class="bringer-footer-line stg-container">
+        <div class="align-center">
+          Copyright TechRealm Pakistan© 2024. All Rights Reserved.
+        </div>
+      </div><!-- bringer-footer-line -->
+    </footer>
+    <button id="mode-toggle">Toggle Dark/Light Mode</button>
+    <script>
+      const modeToggleBtn = document.ge      tElementById('mode-toggle');
 
-            <!-- Footer Copyright Line -->
-            <div class="bringer-footer-line stg-container">
-                <div class="align-center">
-                    Copyright TechRealm Pakistan© 2024. All Rights Reserved.
-                </div>
-            </div><!-- bringer-footer-line -->
-        </footer>
-        <button id="mode-toggle">Toggle Dark/Light Mode</button>
-        <script>
-            const modeToggleBtn = document.getElementById('mode-toggle');
-
-modeToggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode'); // Toggle dark mode class on body
-    if (document.body.classList.contains('dark-mode')) {
-        // If dark mode is enabled, update CSS variables for dark mode
-        document.documentElement.style.setProperty('--bringer-s-body-bg', '#07090D');
-        document.documentElement.style.setProperty('--bringer-s-nav', '#07090DCC');
-        document.documentElement.style.setProperty('--bringer-s-container-bg', '#1A1D24');
-        document.documentElement.style.setProperty('--bringer-s-container-frosted', '#1A1D24EE');
-        document.documentElement.style.setProperty('--bringer-s-heading', '#F5F7FA');
-        document.documentElement.style.setProperty('--bringer-s-heading-fade', '#F5F7FAC0');
-        document.documentElement.style.setProperty('--bringer-s-text', '#C5C7CE');
-    } else {
-        // If dark mode is disabled, revert to light mode CSS variables
-        document.documentElement.style.setProperty('--bringer-s-body-bg', '#FFFFFF');
-        document.documentElement.style.setProperty('--bringer-s-nav', '#FFFFFF');
-        document.documentElement.style.setProperty('--bringer-s-container-bg', '#FFFFFF');
-        document.documentElement.style.setProperty('--bringer-s-container-frosted', '#FFFFFFEE');
-        document.documentElement.style.setProperty('--bringer-s-heading', '#000000');
-        document.documentElement.style.setProperty('--bringer-s-heading-fade', 'rgba(0, 0, 0, 0.75)');
-        document.documentElement.style.setProperty('--bringer-s-text', '#000000');
-    }
+      modeToggleBtn.addE        Listener('click', () => {
+        document.body.classList.toggle('dark-mode'); // T        e dark mode class on body
+        if (document.body.class          tains('dark-mode')) {
+        // If dark mode is enabled, updat          riables for dark mode
+        document.documentElement.style.setProperty('--br          body-bg', '#07090D');
+        document.documentElement.style.setProperty('--          s-nav', '#07090DCC');
+        document.documentElement.style.setProperty('--bringer          iner-bg', '#1A1D24');
+        document.documentElement.style.setProperty('--bringer-s-cont          osted', '#1A1D24EE');
+        document.documentElement.style.setProperty('--br          heading', '#F5F7FA');
+        document.documentElement.style.setProperty('--bringer-s          -fade', '#F5F7FAC0');
+        document.documentElement.style.setProperty('-        nger-s-te          5C7CE');
+      } else {
+        // If dark mode is disabled, rever          ht mode CSS variables
+        document.documentElement.style.setProperty('--br          body-bg', '#FFFFFF');
+        document.documentElement.style.setProperty('          r-s-nav', '#FFFFFF');
+        document.documentElement.style.setProperty('--bringer          iner-bg', '#FFFFFF');
+        document.documentElement.style.setProperty('--bringer-s-cont          osted', '#FFFFFFEE');
+        document.documentElement.style.setProperty('--br          heading', '#000000');
+        document.documentElement.style.setProperty('--bringer-s-heading-f          gba(0, 0, 0, 0.75)');
+        document.documentElement.style.setProperty('-        ng      er-s-#000000');
+      }
 });
 
-        </script>
-	</main>
+    </script>
+  </main>
 
-    <!-- Right Click Protection Block -->
-    <div class="bringer-rcp-wrap">
-        <div class="bringer-rcp-overlay"></div>
-        <div class="bringer-rcp-container">
-            <h2>The context menu is not allowed on this page.</h2>
-        </div>
+  <!-- Right Click Protection Block -->
+  <div class="bringer-rcp-wrap">
+    <div class="bringer-rcp-overlay"></div>
+    <div class="bringer-rcp-container">
+      <h2>The context menu is not allowed on this page.</h2>
     </div>
+  </div>
 
-    <!-- Dynamic Backlight -->
-    <div class="bringer-backlight"></div>
+  <!-- Dynamic Backlight -->
+  <div class="bringer-backlight"></div>
 
-    <!-- JS Scripts -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/libs.js"></script>
-    <script src="js/contact_form.js"></script>
-    <script src="js/st-core.js"></script>
-    <script src="js/classes.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        var showSmallVid = false,
-        playing = false;
+  <!-- JS Scripts -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/libs.js"></script>
+  <script src="js/contact_form.js"></script>
+  <script src="js/st-core.js"></script>
+  <script src="js/classes.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/theme-toggle.js"></script>
+</body>
+<script>
+  showSmallVid = fa
+  playing = false;
+
+  var video = docu      ElementById('video'),
+    smallVideo = document.getElementsBy      e('sticky-video')[0],
+      trigger = document.getEleById('js-video-trigger');
+
+  document.addEventListene r('D      tLoaded', function () {
+         w        roll = funct               oll();
+  }
     
-    var video = document.getElementById('video'),
-        smallVideo = document.getElementsByClassName('sticky-video')[0],
-        trigger = document.getElementById('js-video-trigger');
-    
-    document.addEventListener('DOMContentLoaded', function(){
-        window.onscroll = function() {
-          doScroll();
-        }
-    
-        trigger.addEventListener('click', triggerVideo, false);
-    
-        initVideo();
+        trigger.addEventListener('k      erVideo, fals  
+         inito();
       
-    },false);
-    
-    //copy main video into sticky vid canvas
-    function initVideo() {
-      var v = document.getElementById('video');
-      var canvas = document.getElementById('video-canvas');
-      var context = canvas.getContext('2d');
-    
-      var cw = 300;
-      var ch = Math.floor(v.clientHeight / (v.clientWidth / 300));
-      canvas.width = cw;
-      canvas.height = ch;
-    
-      v.addEventListener('playing', function(){
-          draw(this,context,cw,ch);
-      },false);
+    }, false);
+
+  //copy main video into sticky vid canvas
+  function initVideo() {
+    var v = document.getElementById('video');
+    var canvas = document.getElementById('video-canvas');
+    var conte canvas.getContext('2d');
+
+    var cw = 300;
+    var ch = Math.floor(v.clientHeight / (v.clientWidth / 300));
+    canvas.width = canvas.height = ch;
+
+    v.addEve nt Li        aying', fu nction() {
+    draw(this, context, h);
+  }, false);
     }
-    
-    //draw video to canvas
-    function draw(v,c,w,h) {
-        if(v.paused || v.ended) return false;
-        c.drawImage(v,0,0,w,h);
-        setTimeout(draw,20,v,c,w,h);
+
+  //draw video  to  c anvas      ct ion draw(v,c,w,h) {
+  if (v.pau.ended) return f al se;
+  drawImage(v, 0, 0, w, h);
+  setTit(draw, 20, v, c, w, h);
     }
-    
-    //on scroll, show/hide side video
-    function doScroll() {
-      var scrollPos = window.scrollY;
-      
-      if(scrollPos > smallVideo.offsetTop + 200)
-      {    
-        //sticky vid enter/leave
-        if(showSmallVid)
-        {
-          smallVideo.style.right = 0 + 'px';
-        }
+
+  //on scroll, show/hide side video
+  function doScroll() {
+    vallPos = w indow.scrollY;
+
+    if (scrollPos lo.offsetTop + 200)
+    {
+      //sti cky vid enter/      if(showSmallVid)
+      {
+        smallVideo.style.right = 0
+      }
         else
-        {
-          smallVideo.style.right = -300 + 'px';
-        }
-      }
-      else
       {
-        //sticky vid leave
-        smallVideo.style.right = -300 + 'px';
+        smallVideo.style.right = -300 + 'px'
       }
     }
-    
-    //on click of play button, trigger video
-    var triggerVideo = function()
+      else
     {
-      showSmallVid = false;
-      trigger.classList.remove('mute');
-      
-      video.removeEventListener('playing', play, false);
-      playing = false;
-    
-      //mute/unmute video
-      video.muted = !video.muted;
-    
-      //on play video, restart video & trigger small video
-      if(!video.muted)
-      {
-        trigger.classList.add("mute");
-        video.currentTime = 0;
-    
-        showSmallVid = true;
-    
-        video.addEventListener('playing', play, false);
-      }
-      else
-      {
-        showSmallVid = false;
-        smallVideo.style.right = -300 + 'px';
-      }
+      //sticky vid leave
+      smallVideo.style.right300 + 'px';
     }
-    
-    //detect loop (second instance of 'playing' event) when mute not triggered
-    var play = function(event)
-    {
-      if(!playing)
-      {
-        //ignore first time
-        playing = true;
-      }
-      else
-      {
-        video.muted = true;
-        trigger.classList.remove("mute");
-    
-        showSmallVid = false;
-        smallVideo.style.right = -300 + 'px';
-    
-        video.removeEventListener('playing', play, false);
-      }
-    }
-        </script>
+  }
 
-</body></html>
+  //on click of play button, trigger video
+  triggerVideo = function () {
+    showSmallVid = false;
+    trigassList.remove('mute');
+
+    video.removeEventListener('playing', play, f);
+    playing = false;
+
+    //mute/unmute video
+    deo.muted = !video.muted;
+
+    //on play video, restart video  & trigger smal 
+    if (!video.muted) {
+      trigger.classList.add("mute");
+      video.currentTime = 0;
+      showSmallVid = true;
+
+      video.addEventListener('playing', pl se);
+    }
+    else {
+      showSmallVid = false;
+      smallVideo.style.right300 + 'px';
+    }
+  }
+
+    //detect loop (second instance of 'playing' event) when mute not tri ggered
+ ar play = function (e    {
+    if(!playing)
+  {
+        //ignore first time
+        play rue;
+  }
+      else
+  {
+    video.muted = true;
+    trigclassList.remove("mute");
+
+    showSmallVid = false;
+    smallVidtyle.right = -300 + 'px';
+
+    video.removeEventListener('playing'fals   }
+    }
+</script>
+
+</body>
+
+</html>
