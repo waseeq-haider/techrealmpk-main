@@ -125,7 +125,7 @@
       <!-- Header Logo -->
       <div class="bringer-header-lp">
         <a href="./" class="bringer-logo">
-          <img src="images/logo.png" alt="bringer." width="158" height="124">
+          <img src="images/logo.png" alt="TechRealm" width="158" height="124">
         </a>
       </div>
       <!-- Main Menu -->
@@ -180,7 +180,7 @@
     <!-- Mobile Header -->
     <div class="bringer-mobile-header-inner">
       <a href="./" class="bringer-logo">
-        <img src="images/logo.png" alt="bringer." width="88" height="24">
+        <img src="images/logo.png" alt="TechRealm" width="88" height="24">
       </a>
       <a href="#" class="bringer-mobile-menu-toggler">
         <i class="bringer-menu-toggler-icon">
@@ -289,13 +289,13 @@
 -----------------------*/
 
         .home-products-slider-wrapper {
-          background-color: #f8f8f8;
+          background-color: transparent;
           border-radius: 32px;
           padding: 40px 0;
         }
 
         .prod-title {
-          color: #374151;
+          color: #ffffff;
           font-size: 30px;
           font-weight: 700;
         }
@@ -334,9 +334,10 @@
         }
 
         .product-box {
-          background: #fff;
+          background: #161616;
           padding: 15px;
-          box-shadow: 0px 4px 28px 0px #5563801a;
+          box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.5);
+          border: 1px solid #333;
           border-radius: 16px;
         }
 
@@ -360,13 +361,13 @@
         }
 
         .product-box .prod-code {
-          color: #6b7280;
+          color: #999;
           font-size: 14px;
           margin-bottom: 8px;
         }
 
         .product-box .prod-name {
-          color: #374151;
+          color: #ffffff;
           font-weight: 700;
           font-size: 20px;
           text-overflow: ellipsis;
@@ -515,8 +516,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 d-flex justify-content-between">
-              <h2 class="prod-title">
-                Start Your Online Journey Now🔥
+              Start Your Online Journey Now🔥
               </h2>
               <div class="prod-arrow">
                 <div class="swiper-button-next"></div>
@@ -1020,10 +1020,11 @@
             class="bringer-contact-form is-short bringer-masked-media" data-appear="fade-up">
             <div class="bringer-form-content bringer-cta-form">
               <div class="bringer-cta-form-content" data-appear="fade-up" data-delay="100">
-                <div style="background-color: #000; color: #fff;" id='contact-us' class="bringer-cta-title">Ready to set
+                <div id='contact-us' class="bringer-cta-title">Ready to set
                   your Brand ablaze?</div>
-                <input style="background-color: #000; color: #fff;" type="email" id="subscribe_email"
-                  name="subscribe_email" placeholder="email@example.com" required="">
+                <input
+                  style="background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 12px; border-radius: 8px;"
+                  type="email" id="subscribe_email" name="subscribe_email" placeholder="email@example.com" required="">
               </div>
               <div class="bringer-cta-form-button" data-appear="fade-up" data-delay="200">
                 <button type="submit">
@@ -1133,34 +1134,7 @@
         </div>
       </div><!-- bringer-footer-line -->
     </footer>
-    <button id="mode-toggle">Toggle Dark/Light Mode</button>
-    <script>
-      const modeToggleBtn = document.ge      tElementById('mode-toggle');
 
-      modeToggleBtn.addE        Listener('click', () => {
-        document.body.classList.toggle('dark-mode'); // T        e dark mode class on body
-        if (document.body.class          tains('dark-mode')) {
-        // If dark mode is enabled, updat          riables for dark mode
-        document.documentElement.style.setProperty('--br          body-bg', '#07090D');
-        document.documentElement.style.setProperty('--          s-nav', '#07090DCC');
-        document.documentElement.style.setProperty('--bringer          iner-bg', '#1A1D24');
-        document.documentElement.style.setProperty('--bringer-s-cont          osted', '#1A1D24EE');
-        document.documentElement.style.setProperty('--br          heading', '#F5F7FA');
-        document.documentElement.style.setProperty('--bringer-s          -fade', '#F5F7FAC0');
-        document.documentElement.style.setProperty('-        nger-s-te          5C7CE');
-      } else {
-        // If dark mode is disabled, rever          ht mode CSS variables
-        document.documentElement.style.setProperty('--br          body-bg', '#FFFFFF');
-        document.documentElement.style.setProperty('          r-s-nav', '#FFFFFF');
-        document.documentElement.style.setProperty('--bringer          iner-bg', '#FFFFFF');
-        document.documentElement.style.setProperty('--bringer-s-cont          osted', '#FFFFFFEE');
-        document.documentElement.style.setProperty('--br          heading', '#000000');
-        document.documentElement.style.setProperty('--bringer-s-heading-f          gba(0, 0, 0, 0.75)');
-        document.documentElement.style.setProperty('-        ng      er-s-#000000');
-      }
-});
-
-    </script>
   </main>
 
   <!-- Right Click Protection Block -->
@@ -1181,111 +1155,87 @@
   <script src="js/st-core.js"></script>
   <script src="js/classes.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/theme-toggle.js"></script>
-</body>
-<script>
-  showSmallVid = fa
-  playing = false;
+  <script>
+    showSmallVid = false;
+    playing = false;
 
-  var video = docu      ElementById('video'),
-    smallVideo = document.getElementsBy      e('sticky-video')[0],
-      trigger = document.getEleById('js-video-trigger');
-
-  document.addEventListene r('D      tLoaded', function () {
+    document.addEventListene r('D      tLoaded', function () {
          w        roll = funct               oll();
-  }
+    }
     
         trigger.addEventListener('k      erVideo, fals  
          inito();
-      
-    }, false);
+    // video playback control
+    var video = document.getElementById('video');
+    var trigger = document.getElementById('js-video-trigger');
 
-  //copy main video into sticky vid canvas
-  function initVideo() {
-    var v = document.getElementById('video');
-    var canvas = document.getElementById('video-canvas');
-    var conte canvas.getContext('2d');
+    var playing = false;
+    var showSmallVid = false;
+    var smallVideo = document.getElementById('video-canvas');
+    var context = smallVideo.getContext('2d');
 
-    var cw = 300;
-    var ch = Math.floor(v.clientHeight / (v.clientWidth / 300));
-    canvas.width = canvas.height = ch;
-
-    v.addEve nt Li        aying', fu nction() {
-    draw(this, context, h);
-  }, false);
+    // Draw function
+    function draw(v, c, w, h) {
+      if (v.paused || v.ended) return false;
+      c.drawImage(v, 0, 0, w, h);
+      setTimeout(draw, 20, v, c, w, h);
     }
 
-  //draw video  to  c anvas      ct ion draw(v,c,w,h) {
-  if (v.pau.ended) return f al se;
-  drawImage(v, 0, 0, w, h);
-  setTit(draw, 20, v, c, w, h);
+    // Initialize Video
+    function initVideo() {
+      var cw = 300;
+      var ch = Math.floor(video.clientHeight / (video.clientWidth / 300));
+      smallVideo.width = cw;
+      smallVideo.height = ch;
+
+      draw(video, context, cw, ch);
     }
 
-  //on scroll, show/hide side video
-  function doScroll() {
-    vallPos = w indow.scrollY;
+    // Scroll Handler
+    function doScroll() {
+      var scrollPos = window.scrollY;
+      var hero = document.querySelector('.hero');
 
-    if (scrollPos lo.offsetTop + 200)
-    {
-      //sti cky vid enter/      if(showSmallVid)
-      {
-        smallVideo.style.right = 0
+      if (hero && scrollPos > hero.offsetTop + 200) {
+        if (showSmallVid) {
+          smallVideo.style.right = '0px';
+        } else {
+          smallVideo.style.right = '-300px';
+        }
+      } else {
+        smallVideo.style.right = '-300px';
       }
-        else
-      {
-        smallVideo.style.right = -300 + 'px'
+    }
+
+    window.addEventListener('scroll', doScroll);
+
+    // Play/Pause & Mute Toggle
+    trigger.addEventListener('click', function () {
+      if (video.muted) {
+        video.muted = false;
+        trigger.classList.remove('mute');
+        showSmallVid = true;
+        // Sync context if needed, mostly handled by draw loop
+      } else {
+        video.muted = true;
+        trigger.classList.add('mute');
+        showSmallVid = false;
       }
+      doScroll(); // Update visibility immediately
+    });
+
+    // Start drawing when video plays
+    video.addEventListener('play', function () {
+      initVideo();
+    });
+
+    // Initial draw attempt if autoplay works
+    if (!video.paused) {
+      initVideo();
     }
-      else
-    {
-      //sticky vid leave
-      smallVideo.style.right300 + 'px';
-    }
-  }
 
-  //on click of play button, trigger video
-  triggerVideo = function () {
-    showSmallVid = false;
-    trigassList.remove('mute');
+  </script>
 
-    video.removeEventListener('playing', play, f);
-    playing = false;
-
-    //mute/unmute video
-    deo.muted = !video.muted;
-
-    //on play video, restart video  & trigger smal 
-    if (!video.muted) {
-      trigger.classList.add("mute");
-      video.currentTime = 0;
-      showSmallVid = true;
-
-      video.addEventListener('playing', pl se);
-    }
-    else {
-      showSmallVid = false;
-      smallVideo.style.right300 + 'px';
-    }
-  }
-
-    //detect loop (second instance of 'playing' event) when mute not tri ggered
- ar play = function (e    {
-    if(!playing)
-  {
-        //ignore first time
-        play rue;
-  }
-      else
-  {
-    video.muted = true;
-    trigclassList.remove("mute");
-
-    showSmallVid = false;
-    smallVidtyle.right = -300 + 'px';
-
-    video.removeEventListener('playing'fals   }
-    }
-</script>
 
 </body>
 
